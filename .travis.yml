@@ -1,18 +1,15 @@
 os: linux
 dist: bionic
 
-language: node_js
-node_js:
-  - "stable"
+language: python
+cache: pip
 
-cache:
-  npm: true
-  directories:
-  - node_modules
-  - ~/.cache
+python:
+  - "3.6"
+  - "3.7"
 
 install:
-  - npm install
+   - pip install -r requirements.txt
 
 script:
-  - $(npm bin)/cypress run
+    - robot tests.robot
